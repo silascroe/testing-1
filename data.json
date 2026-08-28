@@ -1,0 +1,11 @@
+[
+  {"id":"AX-17","name":"Echo Cartography","category":"Mapping","score":94,"description":"A synthetic atlas of impossible transit lines assembled from procedural coordinate sets.","tags":["canvas","geometry","offline"]},
+  {"id":"BR-04","name":"Quiet Signal","category":"Audio","score":82,"description":"A browser-only signal study exploring oscillation, timing and state without uploading a single byte.","tags":["web-audio","events"]},
+  {"id":"CN-33","name":"Cold Archive","category":"Archive","score":76,"description":"A searchable collection interface demonstrating filtering, sorting and structured static data.","tags":["json","search","filter"]},
+  {"id":"DX-91","name":"Drift Engine","category":"Simulation","score":99,"description":"A particle field whose rules are calculated continuously by the browser animation loop.","tags":["canvas","physics","animation"]},
+  {"id":"EF-28","name":"Fold Memory","category":"State","score":88,"description":"Persistent notes and preferences stored locally, surviving refresh without authentication or a database.","tags":["localStorage","state"]},
+  {"id":"GH-12","name":"Ghost Route","category":"Navigation","score":71,"description":"Hash-based client navigation that works happily under a GitHub project-site subpath.","tags":["routing","url"]},
+  {"id":"JK-55","name":"Static Relay","category":"Network","score":86,"description":"An interactive node graph rendered with pointer-aware canvas hit testing and spring motion.","tags":["canvas","pointer","graph"]},
+  {"id":"LM-08","name":"Pocket Console","category":"Interface","score":91,"description":"A keyboard command palette providing application-like control with zero application server.","tags":["keyboard","dialog","ux"]},
+  {"id":"NP-64","name":"Offline Capsule","category":"Platform","score":97,"description":"A service worker caches the shell so previously visited pages can reopen without connectivity.","tags":["pwa","cache","service-worker"]}
+]
