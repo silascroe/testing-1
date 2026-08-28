@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="A deliberately overbuilt static-site laboratory running entirely on GitHub Pages." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Static//Lab — GitHub Pages Capability Demo</title>
+</head>
+<body>
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Static Lab home"><span class="brand-mark">S//L</span><span>STATIC//LAB</span></a>
+    <nav class="nav" aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#archive">Archive</a><a href="#network">Network</a><a href="#sandbox">Sandbox</a></nav>
+    <div class="topbar-actions"><button class="icon-button" id="command-button" title="Command palette (Ctrl/⌘ K)" aria-label="Open command palette">⌘</button><button class="icon-button" id="theme-button" title="Toggle theme" aria-label="Toggle theme">◐</button></div>
+  </header>
+  <main>
+    <section class="hero section" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> STATIC SITE / ZERO SERVER RUNTIME</p>
+        <h1>A website can be <em>static</em> without being boring.</h1>
+        <p class="lede">This whole thing is HTML, CSS, JavaScript and JSON served as files. No Node server. No database. No framework runtime. It still has client-side routing, persistence, async data, canvas graphics, search, filters, keyboard controls, offline caching, responsive UI and installable-app metadata.</p>
+        <div class="hero-actions"><a class="button primary" href="#sandbox">Break something</a><button class="button ghost" id="randomize-button">Randomize system</button></div>
+      </div>
+      <aside class="system-card glass">
+        <div class="card-header"><span>RUNTIME STATUS</span><span id="clock">--:--:--</span></div>
+        <dl class="metrics"><div><dt>Server compute</dt><dd>0 ms</dd></div><div><dt>Dependencies</dt><dd>0</dd></div><div><dt>Saved state</dt><dd id="storage-state">local</dd></div><div><dt>Connectivity</dt><dd id="network-state">checking</dd></div></dl>
+        <div class="pulse-chart" id="pulse-chart" aria-label="Decorative live activity chart"></div>
+      </aside>
+    </section>
+    <section class="section stats-strip" aria-label="Capability summary">
+      <article><strong>01</strong><span>Responsive layout</span></article><article><strong>02</strong><span>Async static data</span></article><article><strong>03</strong><span>Persistent browser state</span></article><article><strong>04</strong><span>Canvas interaction</span></article><article><strong>05</strong><span>Offline service worker</span></article>
+    </section>
+    <section class="section" id="archive">
+      <div class="section-heading"><div><p class="eyebrow">ASYNC DATA EXPLORER</p><h2>The Archive</h2></div><p>These cards are loaded from a JSON file with <code>fetch()</code>, then searched, filtered and sorted entirely in your browser.</p></div>
+      <div class="controls glass">
+        <label class="search-field"><span>Search</span><input id="search-input" type="search" placeholder="signal, simulation, archive…" autocomplete="off" /></label>
+        <label><span>Category</span><select id="category-select"><option value="all">All categories</option></select></label>
+        <label><span>Sort</span><select id="sort-select"><option value="score-desc">Signal score ↓</option><option value="score-asc">Signal score ↑</option><option value="name">Name A–Z</option></select></label>
+      </div>
+      <div class="archive-meta"><span id="result-count">Loading archive…</span><span id="active-filter">No filter</span></div><div class="card-grid" id="card-grid" aria-live="polite"></div>
+    </section>
+    <section class="section split-section" id="network">
+      <div class="network-copy"><p class="eyebrow">CANVAS / POINTER EVENTS</p><h2>Signal Network</h2><p>The graph is drawn onto a <code>&lt;canvas&gt;</code>. Drag nodes around. The animation loop, hit detection and physics are all client-side JavaScript.</p><div class="network-readout glass"><span>Selected node</span><strong id="selected-node">None</strong><p id="selected-node-copy">Grab one of the nodes and throw it around.</p></div></div>
+      <div class="network-stage glass"><canvas id="network-canvas" aria-label="Interactive network visualization"></canvas><div class="canvas-hint">drag nodes · resize window · nothing leaves your browser</div></div>
+    </section>
+    <section class="section" id="sandbox">
+      <div class="section-heading"><div><p class="eyebrow">LOCAL STATE / URL STATE / EVENTS</p><h2>Browser Sandbox</h2></div><p>A small fake control room to demonstrate state that survives refreshes without any account or database.</p></div>
+      <div class="sandbox-grid">
+        <article class="glass panel"><div class="card-header"><span>SESSION NOTES</span><span>AUTOSAVED</span></div><textarea id="notes" rows="9" placeholder="Write something. Refresh the page. It stays here because localStorage exists."></textarea><div class="panel-footer"><span id="note-count">0 characters</span><button class="text-button" id="clear-notes">Clear</button></div></article>
+        <article class="glass panel"><div class="card-header"><span>PARAMETER ENGINE</span><span id="parameter-code">A-000</span></div><div class="range-row"><label for="density">Density</label><output id="density-output">50</output></div><input id="density" type="range" min="10" max="100" value="50" /><div class="range-row"><label for="drift">Drift</label><output id="drift-output">30</output></div><input id="drift" type="range" min="0" max="100" value="30" /><div class="range-row"><label for="noise">Noise</label><output id="noise-output">15</output></div><input id="noise" type="range" min="0" max="100" value="15" /><div class="meter"><span id="parameter-meter"></span></div><p class="muted">The sliders alter the URL query string, so this state can be bookmarked/shared without a database.</p></article>
+        <article class="glass panel terminal-panel"><div class="card-header"><span>EVENT LOG</span><button class="text-button" id="clear-log">Flush</button></div><div class="terminal" id="event-log" aria-live="polite"></div></article>
+      </div>
+    </section>
+  </main>
+  <footer><span>STATIC//LAB</span><span>Built from ordinary files. Hosted by GitHub Pages.</span><button class="text-button" id="install-button" hidden>Install app</button></footer>
+  <dialog id="detail-dialog"><button class="dialog-close" id="dialog-close" aria-label="Close">×</button><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p id="dialog-description"></p><div class="dialog-score"><span>Signal score</span><strong id="dialog-score"></strong></div><div class="tag-row" id="dialog-tags"></div></dialog>
+  <dialog id="command-dialog" class="command-dialog"><div class="command-head"><span>COMMAND PALETTE</span><kbd>esc</kbd></div><input id="command-input" type="text" placeholder="Type a command…" autocomplete="off" /><div class="command-list" id="command-list"></div></dialog>
+  <script src="./app.js" defer></script>
+</body>
+</html>
