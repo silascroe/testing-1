@@ -1,0 +1,11 @@
+{
+  "name": "Static Lab",
+  "short_name": "StaticLab",
+  "description": "A deliberately overbuilt GitHub Pages capability demo.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#0b1020",
+  "icons": [{"src":"./assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
